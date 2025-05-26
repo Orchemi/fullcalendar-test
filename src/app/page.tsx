@@ -86,12 +86,151 @@ export default function Calendar() {
         dayCellClassNames={dayCellClassNames}
       />
       <style jsx global>{`
-        .fc-daygrid-day:hover {
-          background: #f1f5f9;
-          cursor: pointer;
+        .fc {
+          background: #fffbe6 !important;
+        }
+        .fc-header-toolbar {
+          background: #ffe4e6 !important;
+          border: 2px solid #ff80b5 !important;
+        }
+        .fc-toolbar {
+          background: #e0f2fe !important;
+          border: 2px solid #38bdf8 !important;
+        }
+        .fc-toolbar-title {
+          color: #be185d !important;
+          background: #fce7f3 !important;
+        }
+        .fc-button {
+          background: #fca5a5 !important;
+          color: #1e293b !important;
+          border: 2px dashed #ef4444 !important;
+        }
+        .fc-button-primary {
+          background: #fbbf24 !important;
+          color: #fff !important;
+        }
+        .fc-button-active {
+          background: #34d399 !important;
+          color: #fff !important;
+        }
+        .fc-daygrid {
+          background: #f0fdf4 !important;
+        }
+        .fc-daygrid-day {
+          background: #e0e7ff !important;
+          border: 2px solid #6366f1 !important;
+        }
+        .fc-daygrid-day-number {
+          color: #b91c1c !important;
+          font-weight: bold;
         }
         .fc-day-today {
-          border: 2px solid #2563eb !important;
+          background: #fef9c3 !important;
+          border: 3px solid #f59e42 !important;
+        }
+        .fc-day-past {
+          background: #f3f4f6 !important;
+          color: #6b7280 !important;
+        }
+        .fc-day-future {
+          background: #f0fdf4 !important;
+          color: #047857 !important;
+        }
+        .fc-day-sat {
+          background: #dbeafe !important;
+        }
+        .fc-day-sun {
+          background: #fee2e2 !important;
+        }
+        .fc-event {
+          background: #f472b6 !important;
+          color: #fff !important;
+          border: 2px solid #be185d !important;
+        }
+        .fc-event-title {
+          color: #fff !important;
+        }
+        .fc-event-time {
+          color: #fbbf24 !important;
+        }
+        .fc-event-main {
+          background: #f9fafb !important;
+        }
+        .fc-daygrid-event-dot {
+          background: #f59e42 !important;
+        }
+        .fc-scrollgrid {
+          background: #f1f5f9 !important;
+        }
+        .fc-scrollgrid-section {
+          background: #e0e7ff !important;
+        }
+        .fc-scrollgrid-sync-table {
+          background: #fef2f2 !important;
+        }
+        .fc-col-header {
+          background: #f3e8ff !important;
+        }
+        .fc-col-header-cell {
+          background: #a7f3d0 !important;
+          color: #065f46 !important;
+          border: 2px solid #10b981 !important;
+        }
+        .fc-daygrid-week-number {
+          background: #fca5a5 !important;
+          color: #fff !important;
+        }
+        .fc-highlight {
+          background: #fde68a !important;
+        }
+        .fc-bg-event {
+          background: #a5b4fc !important;
+          opacity: 0.5 !important;
+        }
+        .fc-non-business {
+          background: #f3f4f6 !important;
+        }
+        .fc-popover {
+          background: #fef3c7 !important;
+          border: 2px solid #f59e42 !important;
+        }
+        .fc-list {
+          background: #f1f5f9 !important;
+        }
+        .fc-list-event {
+          background: #fca5a5 !important;
+          color: #fff !important;
+        }
+        .fc-list-day {
+          background: #fef9c3 !important;
+          color: #92400e !important;
+        }
+        .fc-list-table {
+          background: #e0e7ff !important;
+        }
+        .fc-list-heading {
+          background: #fbbf24 !important;
+          color: #fff !important;
+        }
+        .fc-list-heading-main {
+          color: #fff !important;
+        }
+        .fc-list-heading-alt {
+          color: #f59e42 !important;
+        }
+        .fc-list-event-dot {
+          background: #be185d !important;
+        }
+        .fc-list-event-title {
+          color: #fff !important;
+        }
+        .fc-list-event-time {
+          color: #fbbf24 !important;
+        }
+        .fc-list-empty {
+          background: #f3f4f6 !important;
+          color: #6b7280 !important;
         }
       `}</style>
     </div>

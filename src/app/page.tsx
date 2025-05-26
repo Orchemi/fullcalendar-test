@@ -1,15 +1,30 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
+type EventType = {
+  title: string;
+  date: string;
+};
+
 export default function Calendar() {
   const calendarRef = useRef<FullCalendar>(null);
+  const [events, setEvents] = useState<EventType[]>([]);
 
   // FullCalendar API 가져오기
   const getApi = () => calendarRef.current?.getApi();
+
+  // 날짜 클릭 시 이벤트 추가
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleDateClick = (arg: any) => {
+    const title = window.prompt('이벤트 제목을 입력하세요');
+    if (title) {
+      setEvents((prev) => [...prev, { title, date: arg.dateStr }]);
+    }
+  };
 
   return (
     <div className="bg-white p-4">
@@ -50,6 +65,8 @@ export default function Calendar() {
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
         height="auto"
+        dateClick={handleDateClick}
+        events={events}
       />
     </div>
   );

@@ -84,6 +84,7 @@ export default function Calendar() {
         events={events}
         eventContent={renderEventContent}
         dayCellClassNames={dayCellClassNames}
+        firstDay={1}
       />
       <style jsx global>{`
         .fc {

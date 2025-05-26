@@ -122,7 +122,7 @@ export default function Calendar() {
           border: 2px solid #6366f1 !important;
         }
         .fc-daygrid-day-number {
-          color: #b91c1c !important;
+          color: #000 !important;
           font-weight: bold;
         }
         .fc-day-today {
@@ -142,6 +142,12 @@ export default function Calendar() {
         }
         .fc-day-sun {
           background: #fee2e2 !important;
+        }
+        .fc-day-sun .fc-daygrid-day-number {
+          color: #ff0000 !important;
+        }
+        .fc-day-sat .fc-daygrid-day-number {
+          color: #0000ff !important;
         }
         .fc-event {
           background: #f472b6 !important;

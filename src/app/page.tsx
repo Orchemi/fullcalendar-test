@@ -4,10 +4,23 @@ import { useRef, useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { DateClickArg } from '@fullcalendar/interaction';
+import { EventContentArg } from '@fullcalendar/core';
 
 type EventType = {
   title: string;
   date: string;
+};
+
+// dayCellClassNames 인자 타입 직접 정의
+// 공식 타입 export가 없어 date, isToday, 기타 속성 포함
+// https://fullcalendar.io/docs/day-cell-render-hooks 참고
+// https://github.com/fullcalendar/fullcalendar/issues/7262
+
+type DayCellClassNamesArg = {
+  date: Date;
+  isToday: boolean;
+  [key: string]: unknown;
 };
 
 export default function Calendar() {
@@ -18,8 +31,7 @@ export default function Calendar() {
   const getApi = () => calendarRef.current?.getApi();
 
   // 날짜 클릭 시 이벤트 추가
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleDateClick = (arg: any) => {
+  const handleDateClick = (arg: DateClickArg) => {
     const title = window.prompt('이벤트 제목을 입력하세요');
     if (title) {
       setEvents((prev) => [...prev, { title, date: arg.dateStr }]);
@@ -27,16 +39,14 @@ export default function Calendar() {
   };
 
   // 이벤트 커스텀 렌더링
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const renderEventContent = (eventInfo: any) => (
+  const renderEventContent = (eventInfo: EventContentArg) => (
     <div className="mb-1 rounded bg-indigo-100 px-2 py-1 text-xs font-semibold text-indigo-800">
       {eventInfo.event.title}
     </div>
   );
 
   // 날짜 셀 커스텀(예: 오늘 날짜 강조)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const dayCellClassNames = (arg: any) => {
+  const dayCellClassNames = (arg: DayCellClassNamesArg) => {
     if (arg.isToday) return ['bg-blue-50', 'border-blue-400'];
     return [];
   };
